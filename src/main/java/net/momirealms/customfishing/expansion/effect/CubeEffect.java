@@ -25,7 +25,7 @@ public class CubeEffect extends ParticleAction {
     private final MathValue<Player> xMathValue;
     private final double step;
 
-    public CubeEffect(boolean playerOrOther, double chance, String yExp, String xExp, String zExp, String yAxis, String xAxis, String zAxis, Particle particle, int count, double offsetX, double offsetY, double offsetZ, double extra, @Nullable ItemStack data, @Nullable Color color, @Nullable Color toColor, float scale, String x2, String y2, String z2, double step) {
+    public CubeEffect(boolean playerOrOther, MathValue<Player> chance, String yExp, String xExp, String zExp, String yAxis, String xAxis, String zAxis, Particle particle, int count, double offsetX, double offsetY, double offsetZ, double extra, @Nullable ItemStack data, @Nullable Color color, @Nullable Color toColor, float scale, String x2, String y2, String z2, double step) {
         super(playerOrOther, chance, yExp, xExp, zExp, yAxis, xAxis, zAxis, particle, count, offsetX, offsetY, offsetZ, extra, data, color, toColor, scale);
         this.x2MathValue = MathValue.auto(x2);
         this.y2MathValue = MathValue.auto(y2);
@@ -38,7 +38,7 @@ public class CubeEffect extends ParticleAction {
 
     @Override
     protected ParticleObject setProperties(Context<Player> context) {
-        Location base = playerOrOther ? context.getHolder().getLocation() : requireNonNull(context.arg(ContextKeys.OTHER_LOCATION));
+        Location base = playerOrOther ? context.holder().getLocation() : requireNonNull(context.arg(ContextKeys.OTHER_LOCATION));
         double dy1 = yMathValue.evaluate(context);
         double dz1 = zMathValue.evaluate(context);
         double dx1 = xMathValue.evaluate(context);

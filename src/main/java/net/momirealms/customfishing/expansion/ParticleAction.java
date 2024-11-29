@@ -14,7 +14,7 @@ import top.zoyn.particlelib.utils.matrix.Matrixs;
 public abstract class ParticleAction implements Action<Player> {
 
     protected final boolean playerOrOther;
-    protected final double chance;
+    protected final MathValue<Player> chance;
     protected final String yExp;
     protected final String xExp;
     protected final String zExp;
@@ -34,7 +34,7 @@ public abstract class ParticleAction implements Action<Player> {
 
     public ParticleAction(
             boolean playerOrOther,
-            double chance,
+            MathValue<Player> chance,
             String yExp,
             String xExp,
             String zExp,
@@ -76,7 +76,7 @@ public abstract class ParticleAction implements Action<Player> {
 
     @Override
     public void trigger(Context<Player> context) {
-        if (Math.random() < chance) {
+        if (Math.random() < chance.evaluate(context)) {
             var particle = setProperties(context);
             particle.addMatrix(Matrixs.rotateAroundYAxis(yAxisMathValue.evaluate(context)));
             particle.addMatrix(Matrixs.rotateAroundXAxis(xAxisMathValue.evaluate(context)));

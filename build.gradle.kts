@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "net.momirealms"
-version = "1.1"
+version = "1.2"
 
 repositories {
     mavenCentral()
@@ -15,7 +15,7 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
-    compileOnly("com.github.Xiao-MoMi:Custom-Fishing:2.2.3")
+    compileOnly("com.github.Xiao-MoMi:Custom-Fishing:2.2.34")
     implementation("com.github.iqtesterrr:ParticleLib:1.5.4")
 }
 

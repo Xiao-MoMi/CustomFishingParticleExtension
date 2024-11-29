@@ -23,7 +23,7 @@ public class CircleEffect extends ParticleAction {
     private final MathValue<Player> zMathValue;
     private final MathValue<Player> xMathValue;
 
-    public CircleEffect(boolean playerOrOther, double chance, String yExp, String xExp, String zExp, String yAxis, String xAxis, String zAxis, Particle particle, int count, double offsetX, double offsetY, double offsetZ, double extra, @Nullable ItemStack data, @Nullable Color color, @Nullable Color toColor, float scale, double radius, double step) {
+    public CircleEffect(boolean playerOrOther, MathValue<Player> chance, String yExp, String xExp, String zExp, String yAxis, String xAxis, String zAxis, Particle particle, int count, double offsetX, double offsetY, double offsetZ, double extra, @Nullable ItemStack data, @Nullable Color color, @Nullable Color toColor, float scale, double radius, double step) {
         super(playerOrOther, chance, yExp, xExp, zExp, yAxis, xAxis, zAxis, particle, count, offsetX, offsetY, offsetZ, extra, data, color, toColor, scale);
         this.radius = radius;
         this.step = step;
@@ -37,7 +37,7 @@ public class CircleEffect extends ParticleAction {
         double y = yMathValue.evaluate(context);
         double z = zMathValue.evaluate(context);
         double x = xMathValue.evaluate(context);
-        Location base = playerOrOther ? context.getHolder().getLocation() : requireNonNull(context.arg(ContextKeys.OTHER_LOCATION));
+        Location base = playerOrOther ? context.holder().getLocation() : requireNonNull(context.arg(ContextKeys.OTHER_LOCATION));
         Circle circle = new Circle(base.clone().add(x, y, z));
         super.initParticleObject(circle);
         circle.setRadius(radius);

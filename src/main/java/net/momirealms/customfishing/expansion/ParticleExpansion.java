@@ -54,7 +54,7 @@ public class ParticleExpansion extends ActionExpansion<Player> {
 
             ItemStack itemStack = null;
             if (section.contains("itemStack")) {
-                SingleItemParser parser = new SingleItemParser("particle", section.getSection("itemStack"), BukkitCustomFishingPlugin.getInstance().getConfigManager().getFormatFunctions());
+                SingleItemParser parser = new SingleItemParser("particle", section.getSection("itemStack"), BukkitCustomFishingPlugin.getInstance().getConfigManager().getItemFormatFunctions());
                 itemStack = parser.getItem().build(Context.player(null));
             }
 
