@@ -9,13 +9,14 @@ version = "1.2"
 repositories {
     mavenCentral()
     maven("https://maven.aliyun.com/repository/public/")
-    maven("https://papermc.io/repo/repository/maven-public/")
+    maven("https://repo.papermc.io/repository/maven-public/")
+    maven("https://repo.momirealms.net/releases")
     maven("https://jitpack.io/")
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
-    compileOnly("com.github.Xiao-MoMi:Custom-Fishing:2.2.34")
+    compileOnly("net.momirealms:custom-fishing:2.3.8")
     implementation("com.github.iqtesterrr:ParticleLib:1.5.4")
 }
 

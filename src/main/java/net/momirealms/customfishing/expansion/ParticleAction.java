@@ -12,7 +12,6 @@ import top.zoyn.particlelib.pobject.ParticleObject;
 import top.zoyn.particlelib.utils.matrix.Matrixs;
 
 public abstract class ParticleAction implements Action<Player> {
-
     protected final boolean playerOrOther;
     protected final MathValue<Player> chance;
     protected final String yExp;
